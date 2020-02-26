@@ -11,15 +11,6 @@ namespace Persistence
         }
 
           public DbSet<Ticket> Tickets { get; set; }
-
-         protected override void OnModelCreating(ModelBuilder builder){
-            builder.Entity<Ticket>()
-            .HasData(
-                new Ticket {Id=1,Description="Ticket 1"},
-                new Ticket {Id=2,Description="Ticket 2"},
-                new Ticket {Id=3,Description="Ticket 3"}
-               
-            );
-        }
+         
     }
 }
