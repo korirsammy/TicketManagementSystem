@@ -13,7 +13,7 @@ namespace API.Controllers
     public class TicketsController : BaseController
     {
       
-
+  [AllowAnonymous]
          [HttpGet]
         public async Task<ActionResult<List<Ticket>>> List()
         {
