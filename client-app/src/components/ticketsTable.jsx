@@ -8,8 +8,13 @@ class TicketsTable extends Component {
     {
       path: "title",
       label: "Title",
-      content: ticket => <Link to={`/tickets/${ticket.id}`}>{ticket.title}</Link>
-    }
+      content: ticket => <Link to={`/tickets/${ticket.id}`}>{ticket.title}</Link>,
+      
+    },
+    { path: "description", label: "Description" },
+    { path: "city", label: "City" },
+    { path: "reporter", label: "Reporter" },
+    { path: "severity", label: "Severity" }
    
     
     

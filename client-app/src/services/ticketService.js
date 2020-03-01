@@ -19,7 +19,7 @@ export function getTicket(ticketId) {
 export function saveTicket(ticket) {
   if (ticket.id) {
     const body = { ...ticket };
-    delete body.id;
+   // delete body.id;
     
     return http.put(ticketUrl(ticket.id), body);
 

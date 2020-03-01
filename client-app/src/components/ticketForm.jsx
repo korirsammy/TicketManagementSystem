@@ -83,7 +83,7 @@ class TicketForm extends Form {
   render() {
     return (
       <div>
-        <h1>Movie Form</h1>
+        <h1>Ticket Form</h1>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("title", "Title")}    
           {this.renderInput("description", "description")}               
