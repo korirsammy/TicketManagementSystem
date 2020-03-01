@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import auth from "../services/authService";
 import { Link } from "react-router-dom";
 import Table from "./common/table";
 
@@ -10,8 +9,8 @@ class TicketsTable extends Component {
       path: "title",
       label: "Title",
       content: ticket => <Link to={`/tickets/${ticket.id}`}>{ticket.title}</Link>
-    },
-    { path: "genre.description", label: "Description" }
+    }
+   
     
     
   ];
@@ -30,8 +29,7 @@ class TicketsTable extends Component {
 
   constructor() {
     super();
-    const user = auth.getCurrentUser();
-    //if (user && user.isAdmin) this.columns.push(this.deleteColumn);
+  
     this.columns.push(this.deleteColumn);
   }
 

@@ -20,7 +20,9 @@ export function saveTicket(ticket) {
   if (ticket.id) {
     const body = { ...ticket };
     delete body.id;
+    
     return http.put(ticketUrl(ticket.id), body);
+
   }
 
   return http.post(apiEndpoint, ticket);

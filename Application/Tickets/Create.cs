@@ -15,8 +15,7 @@ namespace Application.Tickets
         public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string Category { get; set; }
-        public DateTime Date { get; set; }
+       
         public string City { get; set; }
         public string Reporter { get; set; }
         public string Severity { get; set; }
@@ -26,9 +25,7 @@ namespace Application.Tickets
             public CommandValidator()
             {
                 RuleFor(x => x.Title).NotEmpty();
-                RuleFor(x => x.Description).NotEmpty();
-                RuleFor(x => x.Category).NotEmpty();
-                RuleFor(x => x.Date).NotEmpty();
+                RuleFor(x => x.Description).NotEmpty();                        
                 RuleFor(x => x.City).NotEmpty();
                 RuleFor(x => x.Reporter).NotEmpty();
             }
@@ -47,9 +44,7 @@ namespace Application.Tickets
                 {
                     Id = request.Id,
                     Title = request.Title,
-                    Description = request.Description,
-                    Category = request.Category,
-                    Date = request.Date,
+                    Description = request.Description,                 
                     City = request.City,
                     Reporter = request.Reporter,
                     Severity= request.Severity

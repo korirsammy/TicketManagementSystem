@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Persistence;
 
 namespace Application.Tickets
@@ -14,8 +15,7 @@ namespace Application.Tickets
                     public Guid Id { get; set; }
                     public string Title { get; set; }
                     public string Description { get; set; }
-                    public string Category { get; set; }
-                    public DateTime? Date { get; set; }
+                 
                     public string City { get; set; }
                     public string Reporter { get; set; }
                     public string Severity { get; set; }
@@ -26,8 +26,7 @@ namespace Application.Tickets
                 {
                     RuleFor(x => x.Title).NotEmpty();
                     RuleFor(x => x.Description).NotEmpty();
-                    RuleFor(x => x.Category).NotEmpty();
-                    RuleFor(x => x.Date).NotEmpty();
+                   
                     RuleFor(x => x.City).NotEmpty();
                     RuleFor(x => x.Reporter).NotEmpty();
                 }
@@ -47,18 +46,18 @@ namespace Application.Tickets
                         throw new Exception("Could not find ticket");
 
                             ticket.Title = request.Title ?? ticket.Title;            
-                            ticket.Description = request.Description ?? ticket.Description;            
-                            ticket.Category = request.Category ?? ticket.Category;            
-                            ticket.Date = request.Date ?? ticket.Date;            
+                            ticket.Description = request.Description ?? ticket.Description;           
+                                     
                             ticket.City = request.City ?? ticket.City;            
                             ticket.Reporter = request.Reporter ?? ticket.Reporter; 
                             ticket.Severity = request.Reporter ?? ticket.Severity; 
-
-                        var success = await _context.SaveChangesAsync() > 0;
-        
-                        if (success) return Unit.Value;
-        
-                        throw new Exception("Problem saving changes");
+                      
+                      
+                       
+                            var success = await _context.SaveChangesAsync()>0;
+                             throw new Exception("Problem saving changes");
+                       
+                      
                     }
                 }
     }

@@ -17,6 +17,7 @@ namespace Application.User
         {
             public string Email { get; set; }
             public string Password { get; set; }
+             public bool isAdmin { get; set; }
         }
 
         public class QueryValidator : AbstractValidator<Query>
@@ -58,8 +59,10 @@ namespace Application.User
                         DisplayName = user.DisplayName,
                         Token = _jwtGenerator.CreateToken(user),
                         Username = user.UserName,
-                        Image = null
+                        Image = null,
+                        isAdmin=user.isAdmin
                     };
+                    
                 }
 
                 throw new RestException(HttpStatusCode.Unauthorized);

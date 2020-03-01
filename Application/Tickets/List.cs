@@ -23,6 +23,8 @@ namespace Application.Tickets
             {
                  var tickets = await _context.Tickets.ToListAsync();
 
+                
+
                 return tickets;
             }
         }

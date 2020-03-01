@@ -19,7 +19,8 @@ namespace Persistence
                     {
                         DisplayName = "Sammy",
                         UserName = "Sammy",
-                        Email = "sammy@test.com"
+                        Email = "sammy@test.com",
+                        isAdmin=true
                     },
                     new AppUser
                     {
@@ -41,36 +42,55 @@ namespace Persistence
                 }
                 
             }
+            if (!context.Categories.Any())
+            {
+                var categories = new List<Category>
+                {
+                    new Category
+                    {
+                      
+                        Name = "Network"                       
+                    },
+                      new Category
+                    {
+                      
+                        Name = "Application"                       
+                    },
+                    new Category
+                    {
+                       
+                        Name = "Desktop"                       
+                    },
+                  
+                };
+                    context.Categories.AddRange(categories);
+                    context.SaveChanges();
+            }
             if (!context.Tickets.Any())
             {
+               var categoryList= context.Categories.ToList();
                 var tickets = new List<Ticket>
                 {
                     new Ticket
                     {
-                        Title = "Issue 1",
-                        Date = DateTime.Now.AddMonths(-2),
-                        Description = "Issue 2 months ago",
-                        Category = "Network",
+                        Title = "Issue 1",                       
+                        Description = "Issue 2 months ago",                      
                         City = "Fredericton",
                         Reporter = "Sammy",
                         Severity = "High",
                     },
                       new Ticket
                     {
-                        Title = "Issue 2",
-                        Date = DateTime.Now.AddMonths(2),
-                        Description = "2 months in future",
-                        Category = "Network",
+                        Title = "Issue 2",                   
+                        Description = "2 months in future",                    
                         City = "Moncton",
                         Reporter = "James",
                         Severity = "High",
                     },
                       new Ticket
                     {
-                        Title = "Issue 3",
-                        Date = DateTime.Now.AddMonths(3),
-                        Description = "3 months in future",
-                        Category = "Network",
+                        Title = "Issue 3",                      
+                        Description = "3 months in future",                      
                         City = "St John",
                         Reporter = "Sheila",
                         Severity = "High",
