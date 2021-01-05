@@ -7,7 +7,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@types/jwt-decode": "^2.2.1",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "bootstrap": "^4.1.1",
     "font-awesome": "^4.7.0",
     "joi-browser": "^13.4.0",
